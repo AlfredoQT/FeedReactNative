@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Text, View, StyleSheet, Image, TouchableHighlight } from 'react-native';
 
-const feedListItemStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         display: 'flex',
         alignItems: 'center',
@@ -14,22 +15,26 @@ const feedListItemStyles = StyleSheet.create({
         flex: 1,
     },
 });
-
 const FeedListItem = ({ item, onPress }) => (
     <TouchableHighlight onPress={onPress}>
-        <View style={feedListItemStyles.container}>
+        <View style={styles.container}>
                 <Image
                     style={{width: 50, height: 50}}
-                    source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+                    source={{uri: item.profile}}
                 />
                 <View>
                     <Text>{item.name}</Text>
+                    <Text>{item.email}</Text>
                 </View>
                 <View>
-                    <Text>{item.email}</Text>
+                    <Text>{'>'}</Text>
                 </View>
         </View>
     </TouchableHighlight>
 );
+
+FeedListItem.propTypes = {
+    item: PropTypes.object.isRequired,
+};
 
 export default FeedListItem;

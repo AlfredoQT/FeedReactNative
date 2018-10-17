@@ -1,19 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import Feed from './screens/Feed';
-import UserDetails from './screens/UserDetails';
+import { Provider } from 'react-redux';
 
-const Tab1Stack = createStackNavigator({
-  Main: Feed,
-  Details: UserDetails,
-},{
-  initialRouteName: 'Main',
-});
+import * as firebase from './utils/firebase';
+import configureStore from './redux/create';
+import NavigationController from './NavigationController';
 
-export default createBottomTabNavigator(
-  {
-    Tab1: Tab1Stack
-  }
-);
+firebase.init();
+
+export default function() {
+  return (
+    <Provider store={configureStore()}>
+      <NavigationController />
+    </Provider>
+  )
+}
