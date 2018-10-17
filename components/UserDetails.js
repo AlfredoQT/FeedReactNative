@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
 });
 
 const UserDetails = ({ user }) => {
-    console.log(user);
     return (
         <React.Fragment>
             <Image source={{uri: user.profile}} style={{
