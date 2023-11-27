@@ -9,8 +9,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^30.0.1",
-    "firebase": "^5.5.2",
+    "expo": "^45.0.0",
+    "firebase": "^7.14.0",
     "normalizr": "^3.3.0",
     "prop-types": "^15.6.2",
     "react": "16.3.1",
